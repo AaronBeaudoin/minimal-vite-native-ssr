@@ -1,0 +1,18 @@
+{
+  "name": "vite-ssr-playground",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "node develop",
+    "build:client": "vite build --outDir dist/client --ssrManifest",
+    "build:server": "vite build --outDir dist/server --ssr entrypoints/server.js",
+    "build": "npm run build:client && npm run build:server && node prerender",
+    "render": "npm run build && node preview render",
+    "static": "npm run build && node preview static"
+  },
+  "devDependencies": {
+    "chalk": "^4.1.2",
+    "express": "^4.18.1",
+    "sirv": "^2.0.2",
+    "vite": "^3.0.4"
+  }
+}
